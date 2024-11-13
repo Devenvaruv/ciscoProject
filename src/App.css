@@ -1,113 +1,160 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(17, 18, 23);
-    color: #CCCCDC;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(17, 18, 23);
+  color: #CCCCDC;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.chat-content {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.loading-logo {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .app-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .chat-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  
-  .chat-content {
-    flex-grow: 1;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .loading-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .iframe-content {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  
-  .chat-input-form {
-    display: flex;
-    padding: 15px;
-    background-color: rgb(25, 26, 31);
-    border-top: 1px solid rgb(44, 45, 50);
-  }
-  
-  .chat-input {
-    flex: 1;
-    padding: 12px 15px;
-    margin-right: 10px;
-    background-color: rgb(37, 38, 43);
-    border: 1px solid rgb(44, 45, 50);
-    color: #CCCCDC;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-  }
-  
-  .chat-input::placeholder {
-    color: #666;
-  }
-  
-  .chat-input:focus {
-    outline: none;
-    border-color: rgb(70, 130, 180); /* SteelBlue */
-  }
-  
-  .chat-submit-button {
-    padding: 12px 20px;
-    background-color: rgb(70, 130, 180); /* SteelBlue */
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .chat-submit-button:hover {
-    background-color: rgb(60, 120, 170);
-  }
-  
-  .chat-submit-button:active {
-    background-color: rgb(50, 110, 160);
-  }
-  
-  .placeholder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-  }
-  
-  .placeholder h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-  
-  .placeholder h3 {
-    font-size: 24px;
-    color: #888;
-  }
-  
-  .placeholder-image {
-    width: 100%;
-    max-width: 150px;
-    max-height: 150px;
-    margin: 20px 0;
-    border-radius: 10px;
-  }
-  
+}
+
+.iframe-content {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.chat-input-form {
+  display: flex;
+  padding: 15px;
+  background-color: rgb(25, 26, 31);
+  border-top: 1px solid rgb(44, 45, 50);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px 15px;
+  margin-right: 10px;
+  background-color: rgb(37, 38, 43);
+  border: 1px solid rgb(44, 45, 50);
+  color: #CCCCDC;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input::placeholder {
+  color: #666;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: rgb(70, 130, 180);
+  /* SteelBlue */
+}
+
+.chat-submit-button {
+  padding: 12px 20px;
+  background-color: rgb(70, 130, 180);
+  /* SteelBlue */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.chat-submit-button:hover {
+  background-color: rgb(60, 120, 170);
+}
+
+.chat-submit-button:active {
+  background-color: rgb(50, 110, 160);
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.placeholder h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.placeholder h3 {
+  font-size: 24px;
+  color: #888;
+}
+
+.placeholder-image {
+  width: 100%;
+  max-width: 150px;
+  max-height: 150px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.logo-animation {
+  display: flex;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 20px;
+  margin: 0 2px;
+  animation: moveUpDown 2s infinite;
+}
+
+@keyframes moveUpDown {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-20px); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
+
+.bar:nth-child(odd) {
+  animation-delay: 0s;
+}
+
+.bar:nth-child(even) {
+  animation-delay: 1s;
+}
+
