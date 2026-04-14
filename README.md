@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Cisco Intelligent Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+First-place winner project from the Cisco HackAIThon.
 
-## Available Scripts
+## High-Level Overview
 
-In the project directory, you can run:
+This repository contains a React prototype for a chat-driven analytics dashboard experience. The product idea is to let a user describe what they want to see in natural language, then render a relevant dashboard view.
 
-### `npm start`
+In its current form, the app is a front-end proof of concept focused on the user flow and presentation:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- A Cisco-branded landing screen
+- A chat-style input at the bottom of the page
+- A loading state with a custom sprite animation
+- An embedded dashboard view shown after the request is submitted
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The current implementation is intentionally simple and uses a mocked flow rather than a live backend or real AI/data integration.
 
-### `npm test`
+## How To Start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js
+- npm
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Then open `http://localhost:3000` in your browser.
 
-### `npm run eject`
+## What The App Does
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When the app first loads, it shows a placeholder screen for the Cisco Intelligent Dashboard.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After you enter a message and click `Send`, the app:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Simulates a request with a short loading delay
+2. Displays the animated loading indicator
+3. Loads a Grafana dashboard inside the page using an `iframe`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Today, that dashboard URL is hardcoded to a public Grafana example, so the app demonstrates the intended interaction pattern rather than a production data pipeline.
 
-## Learn More
+## Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React 18
+- Create React App
+- Plain CSS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Current Scope
 
-### Code Splitting
+This repo currently contains:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- A single-page React UI
+- Local component state for input/loading/dashboard display
+- Static image assets used in the loading animation
 
-### Analyzing the Bundle Size
+This repo does not yet include:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- A backend service
+- A real AI/chat integration
+- Dynamic dashboard generation
+- Project-specific automated tests
